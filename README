@@ -40,10 +40,10 @@ Requirements Check List:
 	b)IllegalStateException ✅
  	
  TestSuite:	
- Coverage 				95.5%	
- Covered Instruction 	912
+ Coverage 				95.9%	
+ Covered Instruction 	1005
  Missed Instruction 	43
- Number of tests 		36/36 passed
+ Number of tests 		35/35 passed
  
  ********************************************
  ************* end of document **************
