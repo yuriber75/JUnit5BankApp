@@ -26,7 +26,7 @@ AgileBankTest/
 │   ├── BankingAppTEST.java # JUnit Test
 │   ├── RunnerTest.java     # JUnit Test 
 │   └── TestSuite.java      # Test suite run all tests
-└── README.md    			# Project documentation
+└── README.txt    			# Project documentation
 
 Requirements Check List:
 1 Refactor ✅
