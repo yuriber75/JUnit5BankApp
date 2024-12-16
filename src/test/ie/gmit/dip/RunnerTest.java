@@ -32,25 +32,25 @@ class RunnerTest {
 	    // Test deposits
 	    assertTrue(bankTest.deposit("AliceTest", 200));
 	    System.out.println("Deposit: Test passed");
-	    assertEquals(1200, bankTest.getBalance("AliceTest"));
+	    assertEquals(1200, bankTest.getBalance("AliceTest"),0.001);
 	    System.out.println("Balance after deposit: Test passed");
 
 	    // Test withdrawals
 	    assertTrue(bankTest.withdraw("BobTest", 300));
 	    System.out.println("Withdraw: Test passed");
-	    assertEquals(200, bankTest.getBalance("BobTest"));
+	    assertEquals(200, bankTest.getBalance("BobTest"),0.001);
 	    System.out.println("Balance after withdraw: Test passed");	    
 	    
 	    // Test loan approval
 	    assertTrue(bankTest.approveLoan("AliceTest", 400));
 	    System.out.println("Approving a loan: Test passed");
-	    assertEquals(400, bankTest.getLoan("AliceTest"));
+	    assertEquals(400, bankTest.getLoan("AliceTest"),0.001);
 	    System.out.println("Balance loan: Test passed");	    
 	    
 	    // Test loan repayment
 	    assertTrue(bankTest.repayLoan("AliceTest", 200));
 	    System.out.println("Repaying loan: Test passed");
-	    assertEquals(200, bankTest.getLoan("AliceTest"));
+	    assertEquals(200, bankTest.getLoan("AliceTest"),0.001);
 	    System.out.println("Balance remaining loan: Test passed");		    
 
 	    // Check total deposits in the bank

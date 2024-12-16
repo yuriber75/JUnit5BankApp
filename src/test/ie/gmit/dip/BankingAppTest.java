@@ -63,8 +63,8 @@ public class BankingAppTest {
     @Timeout(value = 3, unit = TimeUnit.MILLISECONDS) //as per lesson HDipASDWeek10b
     void testSuccessfulAddAccount() {
         bankingApp.addAccount("Alice", 1000);
-        assertEquals(1000, bankingApp.getBalance("Alice"));
-        assertEquals(1000, bankingApp.getTotalDeposits());
+        assertEquals(1000, bankingApp.getBalance("Alice"),0.001);
+        assertEquals(1000, bankingApp.getTotalDeposits(),0.001);
     }
 
     
@@ -152,8 +152,8 @@ public class BankingAppTest {
         bankingApp.addAccount("Alice", 500);
         boolean success = bankingApp.deposit("Alice", 200);
         assertTrue(success);
-        assertEquals(700, bankingApp.getBalance("Alice"));
-        assertEquals(700, bankingApp.getTotalDeposits());
+        assertEquals(700, bankingApp.getBalance("Alice"),0.001);
+        assertEquals(700, bankingApp.getTotalDeposits(),0.001);
     }
 
 
@@ -205,8 +205,8 @@ public class BankingAppTest {
     void testWithdrawSuccess() {
         bankingApp.addAccount("Alice", 1000);
         bankingApp.withdraw("Alice", 300);
-        assertEquals(700, bankingApp.getBalance("Alice"));
-        assertEquals(700, bankingApp.getTotalDeposits());
+        assertEquals(700, bankingApp.getBalance("Alice"),0.001);
+        assertEquals(700, bankingApp.getTotalDeposits(),0.001);
     }
   
     
@@ -291,8 +291,8 @@ public class BankingAppTest {
         bankingApp.addAccount("Alice", 1000);
         boolean success = bankingApp.approveLoan("Alice", 500);
         assertTrue(success);
-        assertEquals(500, bankingApp.getLoan("Alice"));
-        assertEquals(500, bankingApp.getTotalDeposits());
+        assertEquals(500, bankingApp.getLoan("Alice"),0.001);
+        assertEquals(500, bankingApp.getTotalDeposits(),0.001);
     }
 
     /**
@@ -311,7 +311,7 @@ public class BankingAppTest {
         bankingApp.addAccount("Alice", 500);
         boolean fail = bankingApp.approveLoan("Alice", 1000);
         assertFalse(fail);
-        assertEquals(0, bankingApp.getLoan("Alice"));
+        assertEquals(0, bankingApp.getLoan("Alice"),0.001);
     }
 
     /**
@@ -349,8 +349,8 @@ public class BankingAppTest {
         bankingApp.approveLoan("Alice", 500);
         boolean success = bankingApp.repayLoan("Alice", 200);
         assertTrue(success);
-        assertEquals(300, bankingApp.getLoan("Alice"));
-        assertEquals(700, bankingApp.getTotalDeposits());
+        assertEquals(300, bankingApp.getLoan("Alice"),0.001);
+        assertEquals(700, bankingApp.getTotalDeposits(),0.001);
     }
 
 
@@ -372,7 +372,7 @@ public class BankingAppTest {
         bankingApp.approveLoan("Alice", 500);
         boolean fail = bankingApp.repayLoan("Alice", 600);
         assertFalse(fail);
-        assertEquals(500, bankingApp.getLoan("Alice"));
+        assertEquals(500, bankingApp.getLoan("Alice"),0.001);
     }
  
     
@@ -410,7 +410,7 @@ public class BankingAppTest {
         bankingApp.approveLoan("Alice", 500);
         boolean fail = bankingApp.repayLoan("Alice", -100);
         assertFalse(fail);
-        assertEquals(500, bankingApp.getLoan("Alice"));
+        assertEquals(500, bankingApp.getLoan("Alice"),0.001);
     }    
     
     /**

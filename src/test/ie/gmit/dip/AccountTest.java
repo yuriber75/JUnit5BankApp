@@ -75,7 +75,7 @@ class AccountTest {
     @Test
     void testDeposit(){
         account.deposit(200);
-        assertEquals(1200, account.getBalance());
+        assertEquals(1200, account.getBalance(),0.001);
     }
 
     
@@ -120,7 +120,7 @@ class AccountTest {
     @Test
     void Withdraw() {
         assertTrue(account.withdraw(500));
-        assertEquals(500, account.getBalance());
+        assertEquals(500, account.getBalance(),0.001);
     }
 
     
@@ -142,7 +142,7 @@ class AccountTest {
     @Test
     void testWithdrawFail() {
         assertFalse(account.withdraw(1500));
-        assertEquals(1000, account.getBalance());
+        assertEquals(1000, account.getBalance(),0.001);
     }
 
     
@@ -163,21 +163,21 @@ class AccountTest {
     @Test
     void testApproveLoan() {
         account.approveLoan(500);
-        assertEquals(500, account.getLoan());
+        assertEquals(500, account.getLoan(),0.001);
     }
     
     /**
      * Test RefuseLoan
      * -Verify: loan amount added to loan balance. 
      *
-     * -Steps : 1) Loan 500 to account with loan balance 0
+     * -Steps : 1) Loan -500 to account with loan balance 0
      * 
-     * -Result: balance of loan should be 500
+     * -Result: balance of loan should be 0
      */
     @Test
     void testRefuseLoan() {
         account.approveLoan(-500);
-        assertEquals(0, account.getLoan());
+        assertEquals(0, account.getLoan(),0.001);
     }
 
     
@@ -196,7 +196,7 @@ class AccountTest {
     void testRepayLoanSuccess() {
         account.approveLoan(500);
         assertTrue(account.repayLoan(200));
-        assertEquals(300, account.getLoan());
+        assertEquals(300, account.getLoan(),0.001);
     }
 
     
@@ -214,7 +214,7 @@ class AccountTest {
     void testRepayLoanFail() {
         account.approveLoan(500);
         assertFalse(account.repayLoan(600));
-        assertEquals(500, account.getLoan());
+        assertEquals(500, account.getLoan(),0.001);
     }
 
     
@@ -232,7 +232,7 @@ class AccountTest {
     void testRepayNegativeValue() {
         account.approveLoan(500);
         assertFalse(account.repayLoan(-100));
-        assertEquals(500, account.getLoan());
+        assertEquals(500, account.getLoan(),0.001);
     }
     
     
@@ -270,7 +270,7 @@ class AccountTest {
      */  
     @Test
     void testGetBalance() {
-        assertEquals(1000, account.getBalance());
+        assertEquals(1000, account.getBalance(),0.001);
     }
 
    
@@ -286,7 +286,7 @@ class AccountTest {
      */     
     @Test
     void testGetLoan() {
-        assertEquals(0, account.getLoan());
+        assertEquals(0, account.getLoan(),0.001);
     }
 
     
